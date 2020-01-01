@@ -11,11 +11,11 @@ const allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 }
-
+/*
 server.configure(function() {
     server.use(allowCrossDomain);
 });
-
+*/
 server.get('/', (req, res) => {
     res.send('Welcome to Hobbiton');
 });
