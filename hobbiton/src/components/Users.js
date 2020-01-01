@@ -14,6 +14,18 @@ const Users = () => {
             console.log(err);
         })
     }, []);
+
+    const handleDelete = (id) => {
+        console.log('time to handle delete ' + id);
+        axios.delete(`http://localhost:8000/api/users/${id}`)
+            .then(res => {
+                console.log(res);
+                setUsers(users.filter(user => user.id !== id));
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
     
     return (
         <div>Users AKA Hobbits go here
@@ -22,6 +34,7 @@ const Users = () => {
                     <div key={user.id}>
                         <h2>{user.name}</h2>
                         <p>{user.bio}</p>
+                        <button onClick={() => handleDelete(user.id)}>X</button>
                     </div>
                 )
             })}
