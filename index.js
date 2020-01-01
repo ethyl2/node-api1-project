@@ -28,6 +28,35 @@ server.get('/api/users', (req, res) => {
         });
 })
 
+/* 
+When the client makes a GET request to /api/users/:id:
+
+    If the user with the specified id is not found:
+        respond with HTTP status code 404 (Not Found).
+        return the following JSON object: { message: "The user with the specified ID does not exist." }.
+
+    If there's an error in retrieving the user from the database:
+        respond with HTTP status code 500.
+        return the following JSON object: { errorMessage: "The user information could not be retrieved." }.
+
+*/
+server.get('/api/users/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(`Getting user with id ${id}`);
+    db.findById(id)
+        .then(user => {
+            console.log(user);
+            if (!user) {
+                res.status(500).json({ message: "The user with the specified ID does not exist." });
+            }
+            res.status(200).json(user);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ errorMessage: "The user information could not be retrieved." });
+        });
+});
+
 
 
 
