@@ -1,7 +1,7 @@
 {
   "name": "node-api1-project",
   "version": "1.0.0",
-  "description": "Node API 1 Project Starter Code",
+  "description": "Node API 1 Project",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js"
@@ -20,6 +20,7 @@
     "nodemon": "^2.0.1"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "knex": "^0.20.3",
     "sqlite3": "^4.1.0"
   }
