@@ -81,25 +81,83 @@ server.post('/api/users', (req, res) => {
     const newUser = req.body;
     if (!newUser.name || !newUser.bio) {
         res.status(400).json({ errorMessage: "Please provide name and bio for the user." });
+    } else {
+        db.insert(newUser)
+            .then(idObject => {
+                console.log(idObject);
+                db.findById(idObject.id)
+                    .then(user => {
+                        console.log(user);
+                        res.status(201).json(user);
+                    })    
+                    .catch(err => {
+                        console.log(err);
+                        res.status(500).json({ errorMessage: "The new user information could not be retrieved." });
+                    });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({ errorMessage: "There was an error while saving the user to the database" });
+            });
     }
-    db.insert(newUser)
-        .then(idObject => {
-            console.log(idObject);
-            db.findById(idObject.id)
-                .then(user => {
-                    console.log(user);
-                    res.status(201).json(user);
-                })    
-                .catch(err => {
-                    console.log(err);
-                    res.status(500).json({ errorMessage: "The new user information could not be retrieved." });
-                });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({ errorMessage: "There was an error while saving the user to the database" });
-        });
 });
+
+/* 
+When the client makes a PUT request to /api/users/:id:
+
+    If the user with the specified id is not found:
+        respond with HTTP status code 404 (Not Found).
+        return the following JSON object: { message: "The user with the specified ID does not exist." }.
+
+    If the request body is missing the name or bio property:
+        respond with HTTP status code 400 (Bad Request).
+        return the following JSON response: { errorMessage: "Please provide name and bio for the user." }.
+
+    If there's an error when updating the user:
+        respond with HTTP status code 500.
+        return the following JSON object: { errorMessage: "The user information could not be modified." }.
+
+    If the user is found and the new information is valid:
+        update the user document in the database using the new information sent in the request body.
+        respond with HTTP status code 200 (OK).
+        return the newly updated user document.
+*/
+server.put('/api/users/:id', (req, res) => {
+    const id = req.params.id;
+    if (!req.body.name || !req.body.bio) {
+        res.status(400).json({ errorMessage: "Please provide name and bio for the user." });
+    } else {
+        db.find(id)
+            .then(user => {
+                db.update(id, req.body)
+                    .then(num => {
+                        if (num === 1) {
+                            db.findById(id)
+                                .then(user => {
+                                    console.log(user);
+                                    res.status(200).json(user);
+                                })
+                                .catch(err => {
+                                console.log(err);
+                                res.status(500).json({ errorMessage: "The user information could not be retrieved." }); 
+                                });
+                        } else {
+                            res.status(500).json({ errorMessage: "The user information could not be modified." });
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        res.status(500).json({ errorMessage: "The user information could not be modified." })
+                    })
+                    
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(404).json({ message: "The user with the specified ID does not exist." });
+            });
+    }
+});
+
 
 
 
