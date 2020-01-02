@@ -1,13 +1,80 @@
-body {
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@import url('https://fonts.googleapis.com/css?family=Girassol|Oregano&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Oregano', cursive;
+}
+
+body {
+  
+  background: url('./images/hobbitHouse.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1, h2, button {
+  font-family: 'Girassol', cursive;
+}
+
+.users-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-box {
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  background: rgba(71,109,158, 0.8);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  margin: 1rem;
+  border: 0.5rem solid rgb(31,61,107);
+}
+
+.window-box {
+  width: 6rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.doorknob-box {
+  width: 2rem;
+}
+
+.icon {
+  max-width: 100%;
+}
+
+.quillpen-box {
+  width: 3rem;
+}
+
+.swords-box {
+  width: 3rem;
+}
+
+.button-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 }

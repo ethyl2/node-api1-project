@@ -1,6 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 
+import window from '../images/Window.png';
+import doorknob from '../images/Doorknob.png';
+import quillpen from '../images/Quillpen.png';
+import swords from '../images/Swords.png';
+
 const Users = () => {
     const initialUser = {name: '', bio: ''};
     const [users, setUsers] = useState([]);
@@ -47,8 +52,11 @@ const Users = () => {
         axios.post('http://localhost:8000/api/users', newUser)
             .then(res => {
                 console.log(res.data);
-                const submittedUser = res.data;
+                //const submittedUser = res.data;
+                //console.log(submittedUser);
                 //setUsers({...users, submittedUser}); //Why is this causing users.map to not be a function??
+                
+                
                 axios.get('http://localhost:8000/api/users')
                     .then(res => {
                     console.log(res);
@@ -57,6 +65,8 @@ const Users = () => {
                     .catch(err => {
                     console.log(err);
                 });
+                
+
                 setAdding(false);
                 setNewUser(initialUser);
             })
@@ -127,16 +137,31 @@ const Users = () => {
                 <button type='submit'>Add Hobbit</button>
             </form>)
             }
+            <div className='users-box'>
             {users && users.map(user => {
                 return (
-                    <div key={user.id}>
+                    <div key={user.id} className='user-box'>
+                        <div className='window-box'>
+                            <img src={window} alt='window'className='icon' />
+                        </div>
                         <h2>{user.name}</h2>
+                        <div className='doorknob-box'>
+                            <img src={doorknob} alt='doorknob' className='icon' />
+                        </div>
                         <p>{user.bio}</p>
-                        <button onClick={() => handleDelete(user.id)}>X</button>
-                        <button onClick={() => startEdit(user)}><span role='img' aria-label='pencil'>✏️</span></button>
+                        <div className='button-box'>
+                            <div className='swords-box'>
+                                <img src={swords} alt='delete' className='icon' onClick={() => handleDelete(user.id)} />
+                            </div>
+                            
+                            <div className='quillpen-box'>
+                                <img className='icon' src={quillpen} alt='edit' onClick={() => startEdit(user)} />
+                            </div>
+                        </div>
                     </div>
                 )
             })}
+            </div>
         </div>
     );
 }
