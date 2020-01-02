@@ -40,6 +40,7 @@ header {
 footer {
   background: rgba(255, 255, 255, 0.5);
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 button {
@@ -146,4 +147,20 @@ input {
 
 .grow:hover {
   transform: scale(1.2);
+}
+
+.soundSources {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+  
+}
+
+a {
+  color:rgb(45,79,149);
+}
+
+a:hover {
+  font-style: italic;
 }
