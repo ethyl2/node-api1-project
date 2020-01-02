@@ -1,6 +1,6 @@
 import React from 'react';
 import Users from './components/Users';
-
+import Footer from './components/Footer';
 
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <h1>Welcome to Hobbiton</h1>
       </header>
       <Users />
+      <Footer />
     </div>
   );
 }

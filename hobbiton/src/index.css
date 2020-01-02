@@ -27,6 +27,49 @@ h1, h2, button {
   font-family: 'Girassol', cursive;
 }
 
+input {
+  font-family: 'Oregano', cursive;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.5);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.5);
+  padding-top: 1rem;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  background: rgba(225,187,94, 0.8);
+}
+
+form {
+  background: white;
+  width: 40vw;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+input {
+  width: 75%;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.25rem;
+  background: rgb(252,253,216);
+}
+
 .users-box {
   display: flex;
   flex-flow: row wrap;
@@ -56,6 +99,24 @@ h1, h2, button {
   align-items: center;
 }
 
+@media (max-width: 700px) {
+  .window-box {
+    display: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .user-box {
+    width: 75vmin;
+    height: 75vmin;
+    padding: 0;
+  }
+  .window-box {
+    display: flex;
+  }
+}
+
 .doorknob-box {
   width: 2rem;
 }
@@ -77,4 +138,12 @@ h1, h2, button {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.2);
 }
