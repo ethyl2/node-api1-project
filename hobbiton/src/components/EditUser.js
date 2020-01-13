@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const EditUser = props => {
-    //const [editing, setEditing] = useState(false);
     const [userToEdit, setUserToEdit] = useState(props.initialUser);
 
 

@@ -155,10 +155,6 @@ const Users = (props) => {
         setUserToEdit(user);
     }
 
-    const handleEditChange = e => {
-        setUserToEdit({...userToEdit, [e.target.name]: e.target.value});
-    }
-
     const saveEdit = (userToEdit) => {
         if (allowAudio) {
             fanfareSound.play();
