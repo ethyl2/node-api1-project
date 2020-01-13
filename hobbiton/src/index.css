@@ -93,7 +93,7 @@ input {
 }
 
 .window-box {
-  width: 6rem;
+  width: 4rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

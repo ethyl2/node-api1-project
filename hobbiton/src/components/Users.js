@@ -2,7 +2,8 @@ import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import UIfx from 'uifx';
 
-import window from '../images/Window.png';
+//import window from '../images/Window.png';
+import window from '../images/HobbitDoorWindow.png';
 import doorknob from '../images/Doorknob.png';
 import quillpen from '../images/Quillpen.png';
 import swords from '../images/Swords.png';
