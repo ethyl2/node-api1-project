@@ -1,22 +1,8 @@
 import React, { useState } from 'react';
-import UIfx from 'uifx';
-
-import quillpen from '../images/Quillpen.png';
-import swords from '../images/Swords.png';
-
-import scribble from '../audio/scribble.wav';
-
-const scribbleSound = new UIfx(
-    scribble,
-    {
-        volume: 0.8,
-        throttleMs: 100
-    }
-);
 
 const EditUser = props => {
     //const [editing, setEditing] = useState(false);
-    const [userToEdit, setUserToEdit] = useState(initialUser);
+    const [userToEdit, setUserToEdit] = useState(props.initialUser);
 
 
     const handleEditChange = e => {
@@ -25,7 +11,7 @@ const EditUser = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        //props.saveEdit(userToEdit);
+        props.saveEdit(userToEdit);
     }
 
     return (

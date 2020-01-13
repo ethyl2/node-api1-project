@@ -4,6 +4,7 @@ import UIfx from 'uifx';
 
 import Header from './Header';
 import Footer from './Footer';
+import EditUser from './EditUser';
 
 //import window from '../images/Window.png';
 import window from '../images/HobbitDoorWindow.png';
@@ -158,8 +159,7 @@ const Users = (props) => {
         setUserToEdit({...userToEdit, [e.target.name]: e.target.value});
     }
 
-    const saveEdit = e => {
-        e.preventDefault();
+    const saveEdit = (userToEdit) => {
         if (allowAudio) {
             fanfareSound.play();
         }
@@ -196,7 +196,6 @@ const Users = (props) => {
     }
 
     const enterHouse = user => {
-        //props.history.push(`/users/${user.id}`);
         props.history.push({
             pathname:`/users/${user.id}`,
             state: {user: user}
@@ -213,16 +212,7 @@ const Users = (props) => {
             {!allowAudio && <button onClick={handleAudio} className='grow'>Allow Audio</button>}
             {!adding && !editing && <button onClick={startAdd} className='grow'>Add Hobbit</button>}
 
-            {editing && <form onSubmit={saveEdit}>
-            <legend>Edit Hobbit</legend>
-                <label htmlFor='name'>Name: </label>
-                <input type='text' name='name' id='id' value={userToEdit.name} onChange={handleEditChange} /> 
-                <br />
-                <label htmlFor='bio'>Bio: </label>
-                <input type='text' name='bio' id='bio' value={userToEdit.bio} onChange={handleEditChange} />
-                <br />
-                <button type='submit' className='grow'>Submit Changes</button>      
-            </form>}
+            {editing && <EditUser saveEdit={saveEdit} initialUser={userToEdit}/>}
 
             {editing && <button onClick={cancelEdit}>Cancel Edit</button> }
         
@@ -240,7 +230,7 @@ const Users = (props) => {
             </form>)
             }
             {adding && <button onClick={cancelAdd}>Cancel Add</button>}
-            
+
             <div className='users-box'>
             {users && users.map(user => {
                 return (
