@@ -103,11 +103,15 @@ const Users = (props) => {
     };
 
     const startAdd = () => {
-        setAdding(true);
+        setAdding(!adding);
         if (allowAudio) {
             helloSound.play();
         }
 
+    }
+
+    const cancelAdd = () => {
+        setAdding(!adding);
     }
 
     const handleChange = e => {
@@ -122,10 +126,6 @@ const Users = (props) => {
         axios.post('http://localhost:8000/api/users', newUser)
             .then(res => {
                 console.log(res.data);
-                //const submittedUser = res.data;
-                //console.log(submittedUser);
-                //setUsers({...users, submittedUser}); //Why is this causing users.map to not be a function??
-                
                 
                 axios.get('http://localhost:8000/api/users')
                     .then(res => {
@@ -239,6 +239,8 @@ const Users = (props) => {
                 <button type='submit' className='grow'>Add Hobbit</button>
             </form>)
             }
+            {adding && <button onClick={cancelAdd}>Cancel Add</button>}
+            
             <div className='users-box'>
             {users && users.map(user => {
                 return (
