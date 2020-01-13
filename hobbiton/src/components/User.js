@@ -1,9 +1,20 @@
 import React from 'react';
 
+import Header from './Header';
+import Footer from './Footer';
+
 const User = props => {
     return (
-        <div style={{'color': 'white'}}>{`More info about Hobbit ${props.location.state.user.name} with id of ${props.match.params.id} and bio of ${props.location.state.user.bio} to come!`}</div>
-
+        <div className='inside'>
+            <Header />
+            <div className='hobbit-info'>
+                <h1>Hobbit:</h1>
+                <p>{props.location.state.user.name}</p> 
+                <h2>About:</h2>
+                <p>{props.location.state.user.bio}</p>
+            </div>
+            <Footer />
+        </div>
     )
 };
 

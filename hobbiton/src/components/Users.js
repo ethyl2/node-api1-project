@@ -2,6 +2,9 @@ import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import UIfx from 'uifx';
 
+import Header from './Header';
+import Footer from './Footer';
+
 //import window from '../images/Window.png';
 import window from '../images/HobbitDoorWindow.png';
 import doorknob from '../images/Doorknob.png';
@@ -201,7 +204,8 @@ const Users = (props) => {
     }
     
     return (
-        <div>
+        <div className='outside'>
+            <Header />
             {!allowAudio && <button onClick={handleAudio} className='grow'>Allow Audio</button>}
             {!adding && !editing && <button onClick={startAdd} className='grow'>Add Hobbit</button>}
 
@@ -258,6 +262,7 @@ const Users = (props) => {
                 )
             })}
             </div>
+            <Footer />
         </div>
     );
 }

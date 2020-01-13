@@ -16,8 +16,7 @@ body {
   font-family: 'Oregano', cursive;
 }
 
-body {
-  
+.outside {
   background: url('./images/hobbitHouse.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -31,16 +30,29 @@ input {
   font-family: 'Oregano', cursive;
 }
 
+/* Header Styles */
 header {
   background: rgba(255, 255, 255, 0.5);
   padding-top: 1rem;
   padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  margin: 1rem;
+}
+
+header h1 {
+  margin: 1rem;
 }
 
 footer {
   background: rgba(255, 255, 255, 0.5);
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 button {
@@ -163,4 +175,42 @@ a {
 
 a:hover {
   font-style: italic;
+}
+
+/*  User Page Styles */
+
+.inside {
+  background-color: black;
+  background-image: url('./images/fireplace2.jpg');
+  background-size: cover;
+  background-repeat: none;
+  color: white;
+  height: 100vh;
+  padding: 0;
+}
+
+.hobbit-info {
+  margin: 4rem 6rem;
+  line-height: 6rem;
+  text-align: left;
+}
+
+.hobbit-info h1 {
+  font-size: 5rem;
+}
+
+.hobbit-info p {
+  font-size: 3rem;
+}
+
+.hobbit-info h2 {
+  font-size: 4.5rem;
+}
+
+.inside footer {
+  margin: 0;
+}
+
+.inside footer p {
+  color: black;
 }
