@@ -63,7 +63,7 @@ const helloSound = new UIfx(
     }
 );
 
-const Users = () => {
+const Users = (props) => {
     const initialUser = {name: '', bio: ''};
     const [users, setUsers] = useState([]);
     const [adding, setAdding] = useState(false);
@@ -191,6 +191,14 @@ const Users = () => {
             knobSound.play();
         }
     }
+
+    const enterHouse = user => {
+        //props.history.push(`/users/${user.id}`);
+        props.history.push({
+            pathname:`/users/${user.id}`,
+            state: {user: user}
+        });
+    }
     
     return (
         <div>
@@ -230,7 +238,11 @@ const Users = () => {
                         </div>
                         <h2>{user.name}</h2>
                         <div className='doorknob-box grow'>
-                            <img src={doorknob} alt='doorknob' className='icon' onMouseEnter={turnKnob} />
+                            <img src={doorknob} 
+                                alt='doorknob' 
+                                className='icon' 
+                                onMouseEnter={turnKnob} 
+                                onClick={() => enterHouse(user)}/>
                         </div>
                         <p>{user.bio}</p>
                         <div className='button-box'>
