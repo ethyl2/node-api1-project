@@ -1,10 +1,8 @@
 import React from 'react';
 
 import Users from './components/Users';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import User from './components/User';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 function App() {

@@ -202,6 +202,10 @@ const Users = (props) => {
             state: {user: user}
         });
     }
+
+    const cancelEdit = () => {
+        setEditing(!editing);
+    }
     
     return (
         <div className='outside'>
@@ -217,10 +221,12 @@ const Users = (props) => {
                 <label htmlFor='bio'>Bio: </label>
                 <input type='text' name='bio' id='bio' value={userToEdit.bio} onChange={handleEditChange} />
                 <br />
-                <button type='submit' className='grow'>Submit Changes</button>   
-            </form>
+                <button type='submit' className='grow'>Submit Changes</button>      
+            </form>}
+
+            {editing && <button onClick={cancelEdit}>Cancel Edit</button> }
         
-        }
+        
             {adding && (
             <form onSubmit={saveAdd}>
                 <legend>Add a Hobbit to Hobbiton</legend>
