@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const db = require('./data/db.js');
 const cors = require('cors');
 const server = express();
 server.use(express.json());
-server.use(cors())
+server.use(cors());
 
 const allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -32,7 +33,7 @@ server.get('/api/users', (req, res) => {
     console.log('Requesting users');
     db.find()
         .then(users => {
-            console.log(users);
+            //console.log(users);
             res.status(200).json(users);
         })
         .catch(err => {
@@ -215,5 +216,5 @@ server.delete('/api/users/:id', (req, res) => {
 
 
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 server.listen(port, () => console.log(`API up and running on port ${port}`));
