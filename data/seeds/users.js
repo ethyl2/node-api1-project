@@ -11,6 +11,10 @@ exports.seed = function(knex) {
           name: 'Frodo Baggins',
           bio: 'The ring bearer',
         },
+        {
+          name: 'Bilbo Baggins',
+          bio: 'a Hobbit of the Shire, and the first Hobbit to become famous in the world at large'
+        }
       ]);
     });
 };

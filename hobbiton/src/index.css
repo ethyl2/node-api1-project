@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Girassol|Oregano&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Oregano', cursive;
+}
+
+.outside {
+  background: url('./images/hobbitHouse.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1, h2, button {
+  font-family: 'Girassol', cursive;
+}
+
+input {
+  font-family: 'Oregano', cursive;
+}
+
+/* Header Styles */
+header {
+  background: rgba(255, 255, 255, 0.5);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  margin: 1rem;
+}
+
+header h1 {
+  margin: 1rem;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.5);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  background: rgba(225,187,94, 0.8);
+}
+
+form {
+  background: white;
+  width: 40vw;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+input {
+  width: 75%;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.25rem;
+  background: rgb(252,253,216);
+}
+
+.users-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-box {
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  background: rgba(71,109,158, 0.8);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  margin: 1rem;
+  border: 0.5rem solid rgb(31,61,107);
+}
+
+.window-box {
+  width: 4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .window-box {
+    display: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .user-box {
+    width: 75vmin;
+    height: 75vmin;
+    padding: 0;
+  }
+  .window-box {
+    display: flex;
+  }
+}
+
+.doorknob-box {
+  width: 2rem;
+}
+
+.icon {
+  max-width: 100%;
+}
+
+.quillpen-box {
+  width: 3rem;
+}
+
+.swords-box {
+  width: 3rem;
+}
+
+.button-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.2);
+}
+
+.soundSources {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+  
+}
+
+a {
+  color:rgb(45,79,149);
+}
+
+a:hover {
+  font-style: italic;
+}
+
+/*  User Page Styles */
+
+.inside {
+  background-color: black;
+  background-image: url('./images/fireplace.jpg');
+  background-size: cover;
+  background-repeat: none;
+  color: white;
+  padding: 0;
+}
+
+.hobbit-info {
+  margin: 4rem 6rem;
+  line-height: 6rem;
+  text-align: left;
+}
+
+.hobbit-info h1 {
+  font-size: 5rem;
+}
+
+.hobbit-info p {
+  font-size: 3rem;
+}
+
+.hobbit-info h2 {
+  font-size: 4.5rem;
+}
+
+.inside footer {
+  margin: 0;
+}
+
+.inside footer p {
+  color: black;
+}
+
+.inside form {
+  color: orange;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.inside legend {
+  font-size: 3rem;
+}
+
+.inside label {
+  font-size: 2rem;
+}
+
+.inside .quillpen-box, .inside .swords-box {
+  background: rgba(168, 116, 43, 0.8);
+  padding: 0.75rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.inside .inside-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
