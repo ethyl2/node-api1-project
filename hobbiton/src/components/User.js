@@ -41,6 +41,7 @@ const User = props => {
                 console.log(err);
             })
         props.history.push('/');
+        // TODO: figure out how to trigger the home page to rerender the list of users.
     }
 
     return (
