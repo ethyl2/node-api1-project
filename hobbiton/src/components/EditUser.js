@@ -19,11 +19,11 @@ const EditUser = props => {
 
             <label htmlFor='name'>Name: </label>
             <input type='text' name='name' id='id' value={userToEdit.name} onChange={handleEditChange} /> 
-            <br />
+            
             
             <label htmlFor='bio'>Bio: </label>
             <input type='text' name='bio' id='bio' value={userToEdit.bio} onChange={handleEditChange} />
-            <br />
+            
             
             <button type='submit' className='grow'>Submit Changes</button>   
         </form>

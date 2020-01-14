@@ -6,9 +6,11 @@ import Footer from './Footer';
 import EditUser from './EditUser';
 
 import quillpen from '../images/Quillpen.png';
+import swords from '../images/Swords.png';
 
 const User = props => {
     const [isEditing, setIsEditing] = useState(false);
+    const [user, setUser] = useState(props.location.state.user);
 
     const startEdit = () => {
         setIsEditing(!isEditing);
@@ -17,9 +19,11 @@ const User = props => {
 
     const saveEdit = editedUser => {
         console.log(editedUser);
-        axios.put(`http://localhost:8000/api/users/${props.location.state.user.id}`, editedUser)
+        axios.put(`http://localhost:8000/api/users/${user.id}`, editedUser)
+            //props.location.state.user.id
             .then(res => {
                 console.log(res);
+                setUser(res.data);
             })
             .catch(err => {
                 console.log(err);
@@ -27,20 +31,37 @@ const User = props => {
         setIsEditing(!isEditing);
     }
 
+    const handleDelete = () => {
+        console.log('time to delete');
+        axios.delete(`http://localhost:8000/api/users/${user.id}`)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        props.history.push('/');
+    }
+
     return (
         <div className='inside'>
             <Header />
             <div className='hobbit-info'>
                 <h1>Hobbit:</h1>
-                <p>{props.location.state.user.name}</p> 
+                <p>{user.name}</p> 
                 <h2>About:</h2>
-                <p>{props.location.state.user.bio}</p>
+                <p>{user.bio}</p>
 
-                <div className='quillpen-box grow' onClick={startEdit}>
-                                <img className='icon' src={quillpen} alt='edit' />
-                            </div>
+                <div className='inside-buttons'>
+                    <div className='quillpen-box grow' onClick={startEdit}>
+                                    <img className='icon' src={quillpen} alt='edit' />
+                                </div>
+                    <div className='swords-box grow' onClick={handleDelete}>
+                                    <img src={swords} alt='delete' className='icon' />
+                                </div>
+                </div>
                 
-                {isEditing && <EditUser saveEdit={saveEdit} initialUser={props.location.state.user}/>}
+                {isEditing && <EditUser saveEdit={saveEdit} initialUser={user}/>}
             </div>
 
             

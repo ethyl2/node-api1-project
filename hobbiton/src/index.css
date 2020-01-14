@@ -181,11 +181,10 @@ a:hover {
 
 .inside {
   background-color: black;
-  background-image: url('./images/fireplace2.jpg');
+  background-image: url('./images/fireplace.jpg');
   background-size: cover;
   background-repeat: none;
   color: white;
-  height: 100vh;
   padding: 0;
 }
 
@@ -213,4 +212,31 @@ a:hover {
 
 .inside footer p {
   color: black;
+}
+
+.inside form {
+  color: orange;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.inside legend {
+  font-size: 3rem;
+}
+
+.inside label {
+  font-size: 2rem;
+}
+
+.inside .quillpen-box, .inside .swords-box {
+  background: rgba(168, 116, 43, 0.8);
+  padding: 0.75rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.inside .inside-buttons {
+  display: flex;
+  justify-content: flex-start;
 }

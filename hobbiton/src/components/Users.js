@@ -6,7 +6,6 @@ import Header from './Header';
 import Footer from './Footer';
 import EditUser from './EditUser';
 
-//import window from '../images/Window.png';
 import window from '../images/HobbitDoorWindow.png';
 import doorknob from '../images/Doorknob.png';
 import quillpen from '../images/Quillpen.png';
